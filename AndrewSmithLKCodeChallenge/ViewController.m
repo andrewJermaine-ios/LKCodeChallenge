@@ -71,15 +71,15 @@ double lon5;
     lon4 = [[[json valueForKey:@"coordinates"][3] valueForKey:@"lon"] doubleValue];
     lon5 = [[[json valueForKey:@"coordinates"][4] valueForKey:@"lon"] doubleValue];
     
-    CLLocationCoordinate2D libComPark[5];
-    libComPark[0] = CLLocationCoordinate2DMake(lat1, lon1);
-    libComPark[1] = CLLocationCoordinate2DMake(lat2, lon2);
-    libComPark[2] = CLLocationCoordinate2DMake(lat3, lon3);
-    libComPark[3] = CLLocationCoordinate2DMake(lat4, lon4);
-    libComPark[4] = CLLocationCoordinate2DMake(lat5, lon5);
+    CLLocationCoordinate2D polygonPoints[5];
+    polygonPoints[0] = CLLocationCoordinate2DMake(lat1, lon1);
+    polygonPoints[1] = CLLocationCoordinate2DMake(lat2, lon2);
+    polygonPoints[2] = CLLocationCoordinate2DMake(lat3, lon3);
+    polygonPoints[3] = CLLocationCoordinate2DMake(lat4, lon4);
+    polygonPoints[4] = CLLocationCoordinate2DMake(lat5, lon5);
     
-    MKPolygon *polLibcomPark = [MKPolygon polygonWithCoordinates:libComPark count:5];
-    [self.mapView addOverlay:polLibcomPark];
+    MKPolygon *polygon = [MKPolygon polygonWithCoordinates:polygonPoints count:5];
+    [self.mapView addOverlay: polygon];
     
     NSLog(@"Ploygon on map view");
     
